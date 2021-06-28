@@ -1,6 +1,12 @@
 - Ruby 3.0.1
 - Rails 6.1.4
 
+### Development decisions
+**Shortener gem**
+- To generate the shortened URLs
+- Why reinvent the wheel?
+- Activly maintained gem with updates for Rails 6 support
+
 ### Code Style
 
 ```yml

@@ -3,6 +3,9 @@ AllCops:
 require:
   - rubocop-rails
   - rubocop-rspec
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
 RSpec/DescribeClass:
   Enabled: false
 RSpec/ExampleLength:

@@ -221,6 +221,8 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    shortener (0.8.2)
+      voight_kampff (~> 1.1.2)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -238,6 +240,8 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
+    voight_kampff (1.1.4)
+      rack (>= 1.4, < 3.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -281,6 +285,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (>= 6)
   selenium-webdriver
+  shortener
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)

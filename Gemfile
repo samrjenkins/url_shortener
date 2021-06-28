@@ -30,6 +30,7 @@ gem 'devise'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
+gem 'shortener'
 
 group :development, :test do
   gem 'pry'
