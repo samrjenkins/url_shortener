@@ -1,7 +1,9 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.feature "Guest fills in sign up form" do
-  scenario "filling in the form with valid details" do
+require 'rails_helper'
+
+RSpec.describe 'Guest fills in sign up form' do
+  it 'filling in the form with valid details' do
     visit new_user_registration_path
 
     fill_in 'Email', with: 'address@email.com'
@@ -12,7 +14,7 @@ RSpec.feature "Guest fills in sign up form" do
     expect(page).to have_content 'Welcome! You have signed up successfully.'
   end
 
-  scenario "filling in the form with invalid details" do
+  it 'filling in the form with invalid details' do
     visit new_user_registration_path
     click_on 'Sign up'
 
