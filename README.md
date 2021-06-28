@@ -8,3 +8,7 @@ Style/Documentation:
   Enabled: false
 ```
 Code should be self-documenting.
+
+### TODO
+- Internationalise (I18n)
+- CSS styling (Tailwind)
