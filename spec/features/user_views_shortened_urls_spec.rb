@@ -13,6 +13,21 @@ RSpec.describe 'User views shortened URLs' do
     expect(page).to have_content 'www.example.com'
   end
 
+  it 'displays the use count for each shortened URL' do
+    user = create(:user)
+    shortened_url = create(:shortened_url, url: "http://www.example.com", owner: user)
+    login_as user
+
+    visit shortened_urls_path
+
+    expect(page).to have_content 'Use count: 0'
+
+    visit short_url(shortened_url)
+    visit shortened_urls_path
+
+    expect(page).to have_content 'Use count: 1'
+  end
+
   it 'shows empty state when user has generated no shortened URLs' do
     login_as create(:user)
 
