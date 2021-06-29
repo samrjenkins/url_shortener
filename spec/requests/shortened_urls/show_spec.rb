@@ -11,7 +11,9 @@ RSpec.describe "Shortened URLs show" do
   end
 
   it "redirects to root path for shortened URL which doesn't match record" do
-    get shortened_url_url('no_match')
+    shortened_url = build(:shortened_url, url: "http://example.com/", unique_key: "dummy_key")
+
+    get short_url(shortened_url)
 
     expect(response).to redirect_to root_path
   end
