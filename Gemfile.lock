@@ -223,6 +223,9 @@ GEM
     semantic_range (3.0.0)
     shortener (0.8.2)
       voight_kampff (~> 1.1.2)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -286,6 +289,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   shortener
+  simple_form
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)

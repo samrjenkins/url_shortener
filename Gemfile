@@ -31,6 +31,7 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 gem 'shortener'
+gem 'simple_form'
 
 group :development, :test do
   gem 'pry'
