@@ -2,6 +2,12 @@
 - Rails 6.1.4
 
 ### Development decisions
+
+**Devise gem**
+- For user registration/authentication
+- Why reinvent the wheel?
+- Very popular Ruby gem
+
 **Shortener gem**
 - To generate the shortened URLs
 - Why reinvent the wheel?

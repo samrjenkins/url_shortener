@@ -1,13 +1,18 @@
 require "rails_helper"
 
 RSpec.describe "Shortened URLs show" do
-  it "redirects to root path for valid shortened URL" do
-    get "/valid"
+  it "redirects as determined by matching record" do
+    shortened_url = create(:shortened_url, url: "http://example.com/")
 
-    expect(response).to redirect_to root_path
+    get short_url(shortened_url)
+
+    expect(response).to redirect_to "http://example.com/"
+
   end
 
-  it "raises error for invalid shortened URL" do
-    expect { get "/invalid" }.to raise_error ActionController::RoutingError
+  it "redirects to root path for shortened URL which doesn't match record" do
+    get shortened_url_url('no_match')
+
+    expect(response).to redirect_to root_path
   end
 end
