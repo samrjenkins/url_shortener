@@ -6,7 +6,7 @@ RSpec.describe "Shortened URLs create" do
 
     login_as create(:user)
 
-    expect { post shortened_urls_path, params: params }.to change(Shortener::ShortenedUrl, :count).by 1
+    expect { post shortened_urls_path, params: params }.to change(ShortenedUrl, :count).by 1
   end
 
   it 'redirects unathorised user to login' do

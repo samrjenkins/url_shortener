@@ -8,11 +8,11 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def new
-    @shortened_url = Shortener::ShortenedUrl.new
+    @shortened_url = ShortenedUrl.new
   end
 
   def create
-    Shortener::ShortenedUrl.generate(url_param, owner: current_user)
+    ShortenedUrl.generate(url_param, owner: current_user)
     redirect_to shortened_urls_path, notice: "New URL created!"
   end
 

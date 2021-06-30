@@ -6,7 +6,7 @@ RSpec.describe "Shortened URLs create" do
     shortened_url = create(:shortened_url, owner: user)
     login_as user
 
-    expect { delete shortened_url_path(shortened_url.id) }.to change(Shortener::ShortenedUrl, :count).by -1
+    expect { delete shortened_url_path(shortened_url.id) }.to change(ShortenedUrl, :count).by -1
   end
 
   it 'redirects unathorised user to login' do
