@@ -1,35 +1,37 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "Shortened URLs create" do
-  subject { post shortened_urls_path, params: params }
+require 'rails_helper'
 
-  context "when logged in" do
+RSpec.describe 'Shortened URLs create' do
+  subject(:request) { post shortened_urls_path, params: params }
+
+  context 'when logged in' do
     before { login_as create(:user) }
 
     context 'when url is valid' do
-      let(:params) { { shortened_url: { url: "http://www.example.com" } } }
+      let(:params) { { shortened_url: { url: 'http://www.example.com' } } }
 
       it 'creates a ShortenedUrl record' do
-        expect { subject }.to change(ShortenedUrl, :count).by 1
+        expect { request }.to change(ShortenedUrl, :count).by 1
       end
     end
 
     context 'when url is invalid' do
-      let(:params) { { shortened_url: { url: "invalid_url" } } }
+      let(:params) { { shortened_url: { url: 'invalid_url' } } }
 
       it 'does not create a ShortenedUrl record' do
-        expect { subject }.not_to change(ShortenedUrl, :count)
+        expect { request }.not_to change(ShortenedUrl, :count)
       end
 
       it 'responds with 422' do
-        subject
+        request
 
-        expect(response).to have_http_status 422
+        expect(response).to have_http_status :unprocessable_entity
       end
     end
   end
 
-  context "when not logged in" do
+  context 'when not logged in' do
     it 'redirects unathorised user to login' do
       post shortened_urls_path
 

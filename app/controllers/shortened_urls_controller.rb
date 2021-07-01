@@ -14,15 +14,15 @@ class ShortenedUrlsController < ApplicationController
   def create
     @shortened_url = ShortenedUrl.generate(url_param, owner: current_user)
     if @shortened_url.errors.any?
-      render :new, status: 422
+      render :new, status: :unprocessable_entity
     else
-      redirect_to shortened_urls_path, notice: "New URL created!"
+      redirect_to shortened_urls_path, notice: 'New URL created!'
     end
   end
 
   def destroy
     user_shortened_urls.find(params[:id]).destroy
-    redirect_to shortened_urls_path, notice: "URL deleted!"
+    redirect_to shortened_urls_path, notice: 'URL deleted!'
   end
 
   private
