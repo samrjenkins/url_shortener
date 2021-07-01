@@ -12,8 +12,12 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def create
-    ShortenedUrl.generate(url_param, owner: current_user)
-    redirect_to shortened_urls_path, notice: "New URL created!"
+    @shortened_url = ShortenedUrl.generate(url_param, owner: current_user)
+    if @shortened_url.errors.any?
+      render :new, status: 422
+    else
+      redirect_to shortened_urls_path, notice: "New URL created!"
+    end
   end
 
   def destroy

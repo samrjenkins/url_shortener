@@ -5,12 +5,12 @@ require 'rails_helper'
 RSpec.describe 'User views shortened URLs' do
   it "lists user's shortened URLs when user has generated some" do
     user = create(:user)
-    create(:shortened_url, url: "www.example.com", owner: user)
+    create(:shortened_url, url: "http://www.example.com", owner: user)
     login_as user
 
     visit shortened_urls_path
 
-    expect(page).to have_content 'www.example.com'
+    expect(page).to have_content 'http://www.example.com'
   end
 
   it 'displays the use count for each shortened URL' do
@@ -38,11 +38,11 @@ RSpec.describe 'User views shortened URLs' do
 
   it 'does not show shortened URLs belonging to other users' do
     other_user = create(:user)
-    create(:shortened_url, url: "www.dont_show_this_url.com")
+    create(:shortened_url, url: "http://www.dont_show_this_url.com")
     login_as create(:user)
 
     visit shortened_urls_path
 
-    expect(page).not_to have_content 'www.dont_show_this_url.com'
+    expect(page).not_to have_content 'http://www.dont_show_this_url.com'
   end
 end

@@ -32,6 +32,7 @@ gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 gem 'shortener'
 gem 'simple_form'
+gem "validate_url"
 
 group :development, :test do
   gem 'pry'
