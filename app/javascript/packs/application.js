@@ -9,3 +9,5 @@ import "channels"
 
 Rails.start()
 Turbolinks.start()
+
+import "stylesheets/application"
