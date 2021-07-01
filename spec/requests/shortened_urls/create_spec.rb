@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Shortened URLs create' do
-  subject(:request) { post shortened_urls_path, params: params }
+  subject(:post_request) { post shortened_urls_path, params: params }
 
   context 'when logged in' do
     before { login_as create(:user) }
@@ -12,7 +12,7 @@ RSpec.describe 'Shortened URLs create' do
       let(:params) { { shortened_url: { url: 'http://www.example.com' } } }
 
       it 'creates a ShortenedUrl record' do
-        expect { request }.to change(ShortenedUrl, :count).by 1
+        expect { post_request }.to change(ShortenedUrl, :count).by 1
       end
     end
 
@@ -24,7 +24,7 @@ RSpec.describe 'Shortened URLs create' do
       end
 
       it 'responds with 422' do
-        request
+        post_request
 
         expect(response).to have_http_status :unprocessable_entity
       end
@@ -32,8 +32,10 @@ RSpec.describe 'Shortened URLs create' do
   end
 
   context 'when not logged in' do
+    let(:params) { nil }
+
     it 'redirects unathorised user to login' do
-      post shortened_urls_path
+      post_request
 
       expect(response).to redirect_to new_user_session_path
     end
