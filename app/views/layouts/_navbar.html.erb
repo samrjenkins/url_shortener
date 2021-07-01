@@ -1,3 +1,11 @@
-<% if current_user %>
-  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-<% end %>
+<div class="relative py-4">
+  <div class="text-center text-2xl text-blue-600"><%= link_to "URL Shortener", root_path %></div>
+
+  <% if current_user %>
+    <%= render "ui/link",
+               path: destroy_user_session_path,
+               content: "Sign out",
+               method: :delete,
+               class: "absolute top-4 right-4" %>
+  <% end %>
+</div>

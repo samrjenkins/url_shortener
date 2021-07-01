@@ -1,4 +1,18 @@
-<%= simple_form_for @shortened_url, url: shortened_urls_path, as: "shortened_url" do |f| %>
-  <%= f.input :url %>
-  <%= f.submit %>
+<%= render "ui/slate" do %>
+  <h1 class="text-center mb-4 text-xl">Create a new shortened URL</h1>
+  <%= simple_form_for @shortened_url, url: shortened_urls_path, as: "shortened_url" do |f| %>
+    <%= f.input :url,
+                as: :string,
+                required: false,
+                wrapper_html: { class: "w-full mb-4 flex flex-col align-middle" },
+                label_html: { class: "block text-center" },
+                error_html: { class: "rounded-full bg-red-400 text-center"},
+                input_html: {
+                  autocomplete: "off",
+                  class: "bg-transparent border-2 border-gray-100 rounded-full outline-none px-4"
+                } %>
+    <div class="flex justify-center">
+      <%= f.submit class: "bg-indigo-500 hover:bg-indigo-600 rounded-xl px-6 py-2 cursor-pointer" %>
+    </div>
+  <% end %>
 <% end %>

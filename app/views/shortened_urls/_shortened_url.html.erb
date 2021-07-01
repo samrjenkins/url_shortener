@@ -1,2 +1,18 @@
-<p><%= shortened_url.url %> <%= short_url(shortened_url) %> Use count: <%= shortened_url.use_count %></p>
-<%= link_to "Destroy", shortened_url_path(shortened_url.id), method: :delete %>
+<%= render "ui/card" do %>
+  <p>
+    <span>Full URL:</span>
+    <span><%= shortened_url.url %></span>
+  </p>
+  <p>
+    <span>Short URL:</span>
+    <span><%= short_url(shortened_url) %></span>
+  </p>
+  <p>
+    <span>Use count:</span>
+    <span><%= shortened_url.use_count %></span>
+  </p>
+
+  <div class="flex justify-center">
+    <%= link_to "Destroy", shortened_url_path(shortened_url.id), method: :delete, class: "bg-indigo-500 hover:bg-indigo-600 rounded-xl px-6 py-2 cursor-pointer" %>
+  </div>
+<% end %>
