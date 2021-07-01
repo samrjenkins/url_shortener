@@ -11,3 +11,5 @@ Rails.start()
 Turbolinks.start()
 
 import "stylesheets/application"
+
+import "controllers"
