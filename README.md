@@ -43,6 +43,8 @@ Invalid: `example.com`
 - Lightweight JS framework for adding JS sprinkles
 
 ### TODO
+- Styling of devise session/registration forms
 - Internationalise (I18n)
 - Migrate to MySQL or PostgreSQL
 - Speed up tests (compilation of assets is slow and unneccessary)
+- Move validation from model to form object

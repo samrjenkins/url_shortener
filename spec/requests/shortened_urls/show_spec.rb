@@ -3,19 +3,25 @@
 require 'rails_helper'
 
 RSpec.describe 'Shortened URLs show' do
-  it 'redirects as determined by matching record' do
-    shortened_url = create(:shortened_url, url: 'http://example.com/')
+  subject(:get_request) { get short_url(shortened_url) }
 
-    get short_url(shortened_url)
+  context 'when request matches record' do
+    let(:shortened_url) { create(:shortened_url, url: 'http://example.com/') }
 
-    expect(response).to redirect_to 'http://example.com/'
+    it 'redirects as determined by matching record' do
+      get_request
+
+      expect(response).to redirect_to 'http://example.com/'
+    end
   end
 
-  it "redirects to root path for shortened URL which doesn't match record" do
-    shortened_url = build(:shortened_url, url: 'http://example.com/', unique_key: 'dummy_key')
+  context 'when request does not match record' do
+    let(:shortened_url) { build(:shortened_url, url: 'http://example.com/', unique_key: 'dummy_key') }
 
-    get short_url(shortened_url)
+    it "redirects to root path for shortened URL which doesn't match record" do
+      get_request
 
-    expect(response).to redirect_to root_path
+      expect(response).to redirect_to root_path
+    end
   end
 end
