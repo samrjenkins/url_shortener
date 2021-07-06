@@ -1,20 +1,20 @@
 AllCops:
   NewCops: enable
-require:
-  - rubocop-rails
-  - rubocop-rspec
 Metrics/BlockLength:
   Exclude:
-    - spec/**/*
+  - spec/**/*
 Metrics/MethodLength:
   Exclude:
-    - db/migrate/*
+  - db/migrate/*
 RSpec/DescribeClass:
   Enabled: false
 RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
   Exclude:
-    - spec/features/**/*
+  - spec/features/**/*
 Style/Documentation:
   Enabled: false
+require:
+- rubocop-rails
+- rubocop-rspec

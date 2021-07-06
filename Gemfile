@@ -33,6 +33,7 @@ gem 'rubocop-rspec', require: false
 gem 'shortener'
 gem 'simple_form'
 gem 'validate_url'
+gem 'yalphabetize'
 
 group :development, :test do
   gem 'pry'
