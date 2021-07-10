@@ -24,6 +24,26 @@ There is a validation to only allow URLs of a valid format.
 Valid example: `http://example.com`
 Invalid: `example.com`
 
+### Specs and linting
+Tests and linters can be run using:
+```sh
+bundle exec rspec # rspec test suite
+bundle exec rubocop #rubocop
+bundle exec yalphabetize # yalphabetize (YAML alphabetiser)
+```
+
+RSpec tests, rubocop, and yalphabetize can all be run against the code using the default rake task:
+```sh
+bundle exec rake
+```
+
+Each rake task can be run individually:
+```sh
+bundle exec rake rspec
+bundle exec rake rubocop
+bundle exec rake yalphabetize
+```
+
 ### Development decisions
 
 **Devise gem**
